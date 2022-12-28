@@ -40,3 +40,9 @@ form{
     transform: rotate(360deg);
   }
 }
+
+#sidebar{
+  width: 300px;
+  height: 700px;
+  background-color: rgb(0, 145, 255);
+}
