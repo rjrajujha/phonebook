@@ -6,7 +6,7 @@ import "./signup.css";
 import dots from "../Images/dots.svg";
 import topleft from "../Images/topleft.svg";
 import bottomright from "../Images/bottomright.svg";
-const APIUrl = "https://contactsapi-qt0r.onrender.com"
+const APIUrl = "http://127.0.0.1:8000"
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ const Signup = () => {
       alert(("Password does not match!"));
       return;
     }
-    let result = await fetch(`${APIUrl}/api/users/signup`,{
+    let result = await fetch(`${APIUrl}/register`,{
       method:"POST",
       body:JSON.stringify(item),
       headers:{
