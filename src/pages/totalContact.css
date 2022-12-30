@@ -1,0 +1,133 @@
+.total-container{
+    height:100vh;
+    width:100vw;
+    /* background:red; */
+    /* opacity: 0.5; */
+    display: flex;
+}
+.dim{
+    opacity: 0.5;
+}
+#container-left{
+    width: 18%;
+    background-color: #CEF3FF;
+}
+#container-right{
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+}
+#header{
+    display: flex;
+    height: 13%;
+    width: 100%;
+    /* background-color: green; */
+}
+#buttons{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    /* background-color: purple; */
+}
+#main-table{
+    height: 78%;
+    /* background-color: yellow; */
+}
+
+
+#total-sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+#sidebar-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+    /* background-color: red; */
+}
+#dashboard{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* background:red; */
+    
+}
+
+#sidebar-right{
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    height: 60%;
+    width: 100%;
+    /* background-color: green; */
+}
+
+#total-contacts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+    width: 60%;
+    height: 20%;
+    background-color: #2DA5FC;
+}
+#total-contacts *{
+    height: 50%;
+}
+#logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-left{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    /* background-color: red; */
+}
+#search-container{
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    width: 35%;
+    height: 38%;
+    background-color: rgb(215, 202, 202);
+}
+#search{
+    height: 100%;
+   width: 90%;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    
+    
+}
+#header-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    /* background-color: white; */
+}
+#logo-left{
+    margin-right: 10px;
+}
+#main-table{
+    margin-top:90px;
+}
+
+tr:nth-child(even){
+    background-color: #B2DFFF ;
+}
