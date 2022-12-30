@@ -1,21 +1,26 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LogIn from './pages/LogIn';
-import SignUp from './pages/SignUp';
-import Contact from './pages/Contacts';
+import styled from "styled-components";
+import Signin from './pages/signInPage/signin';
+import Signup from "./pages/signUpPage/signup";
+
+import TotalContact from "./pages/TotalContacts";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import ContactContext from "./context/ContactContext";
+import { ContactContextProvider } from "./context/ContactContext";
 
 function App() {
   return (
-    <React.Fragment>
+    // <Container>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LogIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+      <ContactContextProvider>
+      <Routes>
+        <Route exact path="/" element={<Signin/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/TotalContacts" element={<TotalContact/>}/>
+      </Routes>
+      </ContactContextProvider>
       </BrowserRouter>
-    </React.Fragment>
+     
+    // </Container>
   );
 }
 
