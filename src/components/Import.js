@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import ContactContext from "../context/ContactContext";
 
-const APIUrl = "https://contactsapi-qt0r.onrender.com";
+const APIUrl = "https://phonebookapi.onrender.com";
 
 function Import() {
   const { getData } = useContext(ContactContext)
