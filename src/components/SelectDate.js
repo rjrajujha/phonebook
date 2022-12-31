@@ -1,5 +1,5 @@
 import Date from '../assests/images/date.png';
-import Downarrow from '../assests/images/downarrow.png'
+// import Downarrow from '../assests/images/downarrow.png'
 import styled from "styled-components";
 function Selectdate() {
 
@@ -7,7 +7,7 @@ function Selectdate() {
     <Container className="flex a-center j-center gap">
       <div><img src={Date} alt="date"></img></div>
       <div><input type='date'></input></div>
-      <div><img src={Downarrow} alt='arrow' onClick={displayDate}></img></div>
+      {/* <div><img src={Downarrow} alt='arrow' onClick={displayDate}></img></div> */}z
     </Container>
   );
 }
@@ -35,5 +35,6 @@ input[type="date"]{
     background-color: transparent;
     resize: none;
     outline: none;
-}    
+}
+    
 `
