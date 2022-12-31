@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import axios from "axios";
 const ContactContext = createContext();
-const APIUrl = "https://contactsapi-qt0r.onrender.com"
+const APIUrl = "https://phonebookapi.onrender.com"
 
 export const ContactContextProvider = ({ children }) => {
 
