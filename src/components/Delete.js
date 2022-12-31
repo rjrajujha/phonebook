@@ -1,8 +1,10 @@
 import Deleteicon from '../assests/images/delete.png';
+// import Downarrow from '../assests/images/downarrow.png'
 import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import deleteIcon from "../assests/images/delete.png"
 import check from "../assests/images/Check.png";
+// import axios from 'axios';
 import ContactContext from '../context/ContactContext';
 
 function Delete({ selectContact }) {
@@ -45,6 +47,7 @@ function Delete({ selectContact }) {
         </Dialog>}
       </Container2>
     </>
+
   );
 }
 
