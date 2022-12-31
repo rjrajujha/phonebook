@@ -16,14 +16,14 @@ import "./totalContact.css";
 import ContactContext from "../context/ContactContext";
 const APIUrl = "https://contactsapi-qt0r.onrender.com"
 const TotalContact = () => {
-  const {contact,getData,setContact}=useContext(ContactContext)
+  const { contact, getData, setContact } = useContext(ContactContext)
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [dim,setDim]=useState(false)
-  const [selectcontact,setselectContact]=useState([]);
- 
-  const [admin,setAdmin]=useState();
+  const [dim, setDim] = useState(false)
+  const [selectcontact, setselectContact] = useState([]);
+
+  const [admin, setAdmin] = useState();
 
   if (!localStorage.getItem("token")) {
     console.log(555);
@@ -33,58 +33,58 @@ const TotalContact = () => {
     navigate("/TotalContacts");
   }
 
-  const [users,setUsers]=useState();
+  const [users, setUsers] = useState();
 
- useEffect(()=>{
+  useEffect(() => {
 
-  //  console.log(contact)
-     getData();
     //  console.log(contact)
-     getAdmin()
-     setDim(false)
-   
- },[])
+    getData();
+    //  console.log(contact)
+    getAdmin()
+    setDim(false)
+
+  }, [])
 
 
-const handleContact = (e,itemId)=>{
-        const {checked}=e.target;
-        if(checked){
-            setselectContact([...selectcontact,itemId])
-        }else{
-            setselectContact(selectcontact.filter(e=>e!==itemId))
-        }
-        console.log(selectcontact)
+  const handleContact = (e, itemId) => {
+    const { checked } = e.target;
+    if (checked) {
+      setselectContact([...selectcontact, itemId])
+    } else {
+      setselectContact(selectcontact.filter(e => e !== itemId))
     }
-    const handleLogout=()=>{
-      localStorage.removeItem("token");
-      navigate('/');
-      alert("Logged Out");
-      document.location.reload()
-   }
-   const handleButton=()=>{
-      setDim(!dim);
-   }
+    console.log(selectcontact)
+  }
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate('/');
+    alert("Logged Out");
+    document.location.reload()
+  }
+  const handleButton = () => {
+    setDim(!dim);
+  }
 
-   const handleSearch = async(email,e)=>{
+  const handleSearch = async (email, e) => {
     // console.log(email)
-    const headers = {"Authorization": localStorage.getItem("token") }
-    if(e.key==="Enter"){
-      const user = await axios.get(`${APIUrl}/search/${email}`,{headers})
+    const headers = { "Authorization": localStorage.getItem("token") }
+    if (e.key === "Enter") {
+      const user = await axios.get(`${APIUrl}/search/${email}`, { headers })
       setContact(user?.data)
       console.log(users[0])
     }
-   }
-   const handleResetSearch = (e)=>{
-      if(e===""){
-        getData();
-      }
-   }
-   const getAdmin = async ()=>{
-    const headers = {"Authorization": localStorage.getItem("token") }
-    const admins = await axios.get(`${APIUrl}/getAdmin`,{headers})
+  }
+  const handleResetSearch = (e) => {
+    if (e === "") {
+      getData();
+    }
+  }
+  const getAdmin = async () => {
+    const headers = { "Authorization": localStorage.getItem("token") }
+    const admins = await axios.get(`${APIUrl}/getAdmin`, { headers })
     setAdmin(admins)
     // console.log(admins.data)
-   }
+  }
 
   return (
     <>
@@ -95,18 +95,18 @@ const handleContact = (e,itemId)=>{
               <h2 style={{ color: "#2DA5FC", fontSize: "34px" }}>Logo</h2>
               <div id="dashboard" className="gap">
                 <img src={Vector} alt="dashboard"></img>
-                <p style={{"margin":"10px","fontSize":"20px"}}>DashBoard</p>
+                <p style={{ "margin": "10px", "fontSize": "20px" }}>DashBoard</p>
               </div>
               <div id="total-contacts" className="gap">
                 <img src={dashboard}></img>
-                <p style={{"marginTop":"14px","fontSize":"20px"}}>TotalContact</p>
+                <p style={{ "marginTop": "14px", "fontSize": "20px" }}>TotalContact</p>
                 <img src={line} alt="TotalContact"></img>
               </div>
             </div>
             <div id="sidebar-right">
-              <div id="logout" className="gap" onClick={handleLogout} style={{"cursor":"pointer"}}>
+              <div id="logout" className="gap" onClick={handleLogout} style={{ "cursor": "pointer" }}>
                 <img src={logout} alt="Logout"></img>
-                <p style={{"margin":"10px"}}>Logout</p>
+                <p style={{ "margin": "10px" }}>Logout</p>
               </div>
             </div>
           </div>
@@ -121,8 +121,8 @@ const handleContact = (e,itemId)=>{
                   id="search"
                   type="text"
                   placeholder="Search by email...."
-                  onChange={(e)=>{handleResetSearch(e.target.value)}}
-                  onKeyDown={(e)=>{handleSearch(e.target.value,e)}}
+                  onChange={(e) => { handleResetSearch(e.target.value) }}
+                  onKeyDown={(e) => { handleSearch(e.target.value, e) }}
                 ></input>
               </div>
             </div>
@@ -153,28 +153,28 @@ const handleContact = (e,itemId)=>{
                 </tr>
               </thead>
               <tbody>
-                
+
                 {/* {console.log(contact)} */}
-                {contact&&contact.map((item,id)=>{
+                {contact && contact.map((item, id) => {
                   // console.log(tick)
-                    return(
-                        <tr key={id}>
-                            <td><input type="checkbox"  onClick={(e)=>{handleContact(e,item?._id)}}/></td>
-                            <td>{contact&&item?.name}</td>
-                            <td>{contact&&item?.designation}</td>
-                            <td>{contact&&item?.company}</td>
-                            <td>{contact&&item?.industry}</td>
-                            
-                            <td id="tooltip "data-toggle="tooltip" data-placement="top" title={contact&&item?.email} >{contact&&item?.email}</td>
-                            <td>{contact&&item?.phone}</td>
-                            <td>{contact&&item?.country}</td>
-                            <td>
-                              <img src={Delete}style={{"marginRight":"20px"}} alt="delete"/>
-                              <img src={Edit}  alt="edit"/>
-                            </td>
-                      
-                        </tr>
-                    )
+                  return (
+                    <tr key={id}>
+                      <td><input type="checkbox" onClick={(e) => { handleContact(e, item?._id) }} /></td>
+                      <td>{contact && item?.name}</td>
+                      <td>{contact && item?.designation}</td>
+                      <td>{contact && item?.company}</td>
+                      <td>{contact && item?.industry}</td>
+
+                      <td id="tooltip " data-toggle="tooltip" data-placement="top" title={contact && item?.email} >{contact && item?.email}</td>
+                      <td>{contact && item?.phone}</td>
+                      <td>{contact && item?.country}</td>
+                      <td>
+                        <img src={Delete} style={{ "marginRight": "20px" }} alt="delete" />
+                        <img src={Edit} alt="edit" />
+                      </td>
+
+                    </tr>
+                  )
                 })}
 
               </tbody>
@@ -182,8 +182,8 @@ const handleContact = (e,itemId)=>{
           </div>
         </div>
       </div>
-      <div onClick={()=>{handleButton()}}>
-      <Buttons selectContact={selectcontact}/>
+      <div onClick={() => { handleButton() }}>
+        <Buttons selectContact={selectcontact} />
       </div>
     </>
   );
