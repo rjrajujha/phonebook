@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useContext, useEffect, useRef, useState } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 import "./signin.css";
 import React from "react";
@@ -11,7 +11,7 @@ const APIUrl = "https://contactsapi-qt0r.onrender.com"
 
 
 const Signin = () => {
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,74 +40,74 @@ const Signin = () => {
         alert("Enter Valid Details");
       });
   };
-  
+
   return (
-    <> 
+    <>
 
-    <div className ="main-container">
-      <div className="outer-container">
-        <img src={topleft} alt="topleft" className="topleft" />
+      <div className="main-container">
+        <div className="outer-container">
+          <img src={topleft} alt="topleft" className="topleft" />
 
-        <div className="inner-container">
-          <div className="left">
-            <div className="leftsquare">
-              <img src={dots} alt="dotLeft" className="dots" />
+          <div className="inner-container">
+            <div className="left">
+              <div className="leftsquare">
+                <img src={dots} alt="dotLeft" className="dots" />
+              </div>
             </div>
-          </div>
 
-          <div className="inner-box">
-            <div className="signin-logo-container">
-              <p>Logo</p>
-            </div>
-            <div className="signin-message-container">
-              <p>Enter your credentials to access your account</p>
-            </div>
-            <form action="" onSubmit={handleOnSubmit}>
-              <div className="signin-idbox">
-                <input
-                  type="email"
-                  id="login_email"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="User ID"
-                  required
-                />
+            <div className="inner-box">
+              <div className="signin-logo-container">
+                <p>Logo</p>
               </div>
-              <div className="signin-idbox">
-                <input
-                  type="password"
-                  id="login_password"
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                  required
-                />
+              <div className="signin-message-container">
+                <p>Enter your credentials to access your account</p>
               </div>
-              <div>
-                
-                <button id="signin-button" type="submit">
-                  Sign In
-                </button>
-              </div>
-              <div className="signupbox">
-                <Link to="/signup">Sign Up</Link>
-                {/* <button id="signin-button" type="submit">
+              <form action="" onSubmit={handleOnSubmit}>
+                <div className="signin-idbox">
+                  <input
+                    type="email"
+                    id="login_email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="User ID"
+                    required
+                  />
+                </div>
+                <div className="signin-idbox">
+                  <input
+                    type="password"
+                    id="login_password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div>
+
+                  <button id="signin-button" type="submit">
+                    Sign In
+                  </button>
+                </div>
+                <div className="signupbox">
+                  <Link to="/signup">Sign Up</Link>
+                  {/* <button id="signin-button" type="submit">
                   Sign Up
                 </button> */}
-              </div>
-            </form>
-          </div>
+                </div>
+              </form>
+            </div>
 
-          <div className="right-container">
-            <div className="rightsquare">
-              <img src={dots} alt="dotright" className="dots" />
+            <div className="right-container">
+              <div className="rightsquare">
+                <img src={dots} alt="dotright" className="dots" />
+              </div>
             </div>
           </div>
+          <img src={bottomright} alt="bottomright" className="bottomright" />
         </div>
-        <img src={bottomright} alt="bottomright" className="bottomright" />
-      </div>
       </div>
     </>
   );

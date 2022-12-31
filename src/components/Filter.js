@@ -9,13 +9,13 @@ function Filter() {
       <div>Filter</div>
       <div><img src={line} alt='line'></img></div>
       <div><img src={downarrow} alt='arror'></img></div>
-     
+
     </Filters>
   );
 }
 
 export default Filter;
-const Filters=styled.div`
+const Filters = styled.div`
 position: absolute;
 width: 169px;
 height: 40px;
@@ -25,7 +25,4 @@ top:2%;
 background: #FFFFFF;
 box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
 border-radius: 10px;
-
-
-
 `
