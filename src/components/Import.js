@@ -24,7 +24,8 @@ function Import() {
 
     data.append("contact", file[0]);
 
-    const res = axios.post(`${APIUrl}/upload`, data, { headers });
+    // const res 
+    axios.post(`${APIUrl}/upload`, data, { headers });
     setState(false);
     setuploaded(true);
 
@@ -51,7 +52,7 @@ function Import() {
 
             <div id="import-file" className="flex column a-center j-around gap">
               <div id="import-image" className="flex a-center j-center">
-                <img src={fileicon} />
+                <img src={fileicon} alt='fileicon' />
               </div>
               <p style={{ "fontSize": "24px" }}>Import File</p>
               <input id="file" type="file" onChange={(e) => {
@@ -67,7 +68,7 @@ function Import() {
           <Dialog className="flex column a-center j-center gap">
             <div id="import-icons" className="flex column a-center  gap">
               <div id="icon-background" >
-                <img src={check} />
+                <img src={check} alt='check' />
               </div>
               <div id="task-completed">
                 <p style={{ "color": "#1F2633", "fontWeight": "700", "fontSize": "18px" }}>Import completed</p>
