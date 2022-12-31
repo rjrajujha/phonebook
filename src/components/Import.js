@@ -1,6 +1,5 @@
 import Importicon from "../assests/images/import.png";
 import styled from "styled-components";
-
 import check from "../assests/images/Check.png";
 import fileicon from "../assests/images/file.png"
 import { useContext, useState } from "react";
@@ -10,32 +9,30 @@ import ContactContext from "../context/ContactContext";
 const APIUrl = "https://contactsapi-qt0r.onrender.com";
 
 function Import() {
-  const {getData}=useContext(ContactContext)
+  const { getData } = useContext(ContactContext)
   const [state, setState] = useState(false);
   const [uploaded, setuploaded] = useState(false);
   const handleState = () => {
     setState(!state);
-    // console.log(1)
   };
 
   const [file, setFile] = useState();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const headers = {"Authorization": localStorage.getItem("token") }
+    const headers = { "Authorization": localStorage.getItem("token") }
     let data = new FormData();
 
     data.append("contact", file[0]);
 
-    const res = axios.post(`${APIUrl}/upload`,data,{headers});
-    // window.location.reload(false)
+    const res = axios.post(`${APIUrl}/upload`, data, { headers });
     setState(false);
     setuploaded(true);
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setuploaded(false);
       getData();
-    },2000)
-    
+    }, 2000)
+
   };
 
   return (
@@ -51,17 +48,17 @@ function Import() {
       <Container2>
         {state && (
           <Dialog className="flex column a-center j-center gap">
- 
+
             <div id="import-file" className="flex column a-center j-around gap">
               <div id="import-image" className="flex a-center j-center">
-                <img src={fileicon}/>
+                <img src={fileicon} />
               </div>
-              <p style={{"fontSize":"24px"}}>Import File</p>
+              <p style={{ "fontSize": "24px" }}>Import File</p>
               <input id="file" type="file" onChange={(e) => {
                 setFile(e.target.files);
               }}
-            />
-            <button id="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
+              />
+              <button id="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
             </div>
           </Dialog>
         )}
@@ -73,9 +70,9 @@ function Import() {
                 <img src={check} />
               </div>
               <div id="task-completed">
-                <p style={{"color":"#1F2633","fontWeight":"700","fontSize":"18px"}}>Import completed</p>
-                <br/>
-                <p style={{"color":"#2DA5FC","fontWeight":"700","fontSize":"18px","padding-left":"14px"}}>Csv is Uploaded </p>
+                <p style={{ "color": "#1F2633", "fontWeight": "700", "fontSize": "18px" }}>Import completed</p>
+                <br />
+                <p style={{ "color": "#2DA5FC", "fontWeight": "700", "fontSize": "18px", "padding-left": "14px" }}>Csv is Uploaded </p>
               </div>
             </div>
           </Dialog>

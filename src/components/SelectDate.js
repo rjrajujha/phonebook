@@ -2,19 +2,19 @@ import Date from '../assests/images/date.png';
 import Downarrow from '../assests/images/downarrow.png'
 import styled from "styled-components";
 function Selectdate() {
-  
+
   return (
     <Container className="flex a-center j-center gap">
       <div><img src={Date} alt="date"></img></div>
       <div><input type='date'></input></div>
-      {/* <div><img src={Downarrow} alt='arrow' onClick={displayDate}></img></div> */}
+      <div><img src={Downarrow} alt='arrow' onClick={displayDate}></img></div>
     </Container>
   );
 }
 
 export default Selectdate;
 
-const Container=styled.div`
+const Container = styled.div`
 position: absolute;
 width: 169px;
 height: 40px;
@@ -35,8 +35,5 @@ input[type="date"]{
     background-color: transparent;
     resize: none;
     outline: none;
-}
-
-
-    
+}    
 `
