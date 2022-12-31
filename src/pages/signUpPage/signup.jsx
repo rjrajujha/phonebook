@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import "./signup.css";
 import dots from "../Images/dots.svg";
 import topleft from "../Images/topleft.svg";
