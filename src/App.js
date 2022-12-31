@@ -3,7 +3,7 @@ import Signup from "./pages/signUpPage/signup";
 
 import TotalContact from "./pages/TotalContacts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ContactContextProvider from "./context/ContactContext";
+import { ContactContextProvider } from "./context/ContactContext";
 
 function App() {
   return (

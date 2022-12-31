@@ -33,17 +33,14 @@ const TotalContact = () => {
     navigate("/TotalContacts");
   }
 
-  const [users, setUsers] = useState();
-
   useEffect(() => {
 
-    //  console.log(contact)
     getData();
-    //  console.log(contact)
+
     getAdmin()
     setDim(false)
 
-  }, [])
+  }, [getData])
 
 
   const handleContact = (e, itemId) => {
@@ -71,7 +68,6 @@ const TotalContact = () => {
     if (e.key === "Enter") {
       const user = await axios.get(`${APIUrl}/search/${email}`, { headers })
       setContact(user?.data)
-      console.log(users[0])
     }
   }
   const handleResetSearch = (e) => {
@@ -98,7 +94,7 @@ const TotalContact = () => {
                 <p style={{ "margin": "10px", "fontSize": "20px" }}>DashBoard</p>
               </div>
               <div id="total-contacts" className="gap">
-                <img src={dashboard}></img>
+                <img src={dashboard} alt="dashboard"></img>
                 <p style={{ "marginTop": "14px", "fontSize": "20px" }}>TotalContact</p>
                 <img src={line} alt="TotalContact"></img>
               </div>
@@ -116,7 +112,7 @@ const TotalContact = () => {
             <div id="header-left">
               <h2>Total Contact</h2>
               <div id="search-container">
-                <img src={search}></img>
+                <img src={search} alt="search"></img>
                 <input
                   id="search"
                   type="text"
@@ -128,7 +124,7 @@ const TotalContact = () => {
             </div>
             <div id="header-right">
               <div id="logo-left">
-                <img src={profile}></img>
+                <img src={profile} alt="profile"></img>
               </div>
               <div id="logo-right">
                 <h2>{admin?.data}</h2>
