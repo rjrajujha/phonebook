@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import ContactContext from "../context/ContactContext";
 
-const APIUrl = "https://phonebookapi.onrender.com";
+const APIUrl = process.env.REACT_APP_APIURL;
 
 function Import() {
   const { getData } = useContext(ContactContext)

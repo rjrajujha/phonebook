@@ -23,7 +23,7 @@ function Delete({ selectContact }) {
         {state && <Dialog>
           <div id="delete-file" className="flex column a-center j-center gap">
             <div id="delete-image" className="flex a-center j-center">
-              <img src={deleteIcon} />
+              <img src={deleteIcon} alt="del" />
             </div>
             <p style={{ "fontSize": "24px" }}>Delete Contact</p>
             <p style={{ "fontSize": "16px", "color": "#2DA5FC", }}>Sure you want to delete this Contact?</p>
@@ -40,7 +40,7 @@ function Delete({ selectContact }) {
         {deleted && <Dialog className='flex column j-center a-center'>
           <div id="delete-file" className="flex column a-center j-center gap">
             <div id="delete-image" className="flex a-center j-center">
-              <img src={check} />
+              <img src={check} alt="check"/>
             </div>
             <p style={{ "fontSize": "24px" }}>Deleted Contact</p>
           </div>

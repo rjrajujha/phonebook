@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
 import axios from "axios";
 const ContactContext = createContext();
-const APIUrl = "https://phonebookapi.onrender.com"
+
+const APIUrl = process.env.REACT_APP_APIURL;
 
 export const ContactContextProvider = ({ children }) => {
 

@@ -6,7 +6,8 @@ import "./signup.css";
 import dots from "../Images/dots.svg";
 import topleft from "../Images/topleft.svg";
 import bottomright from "../Images/bottomright.svg";
-const APIUrl = "https://phonebookapi.onrender.com"
+
+const APIUrl = process.env.REACT_APP_APIURL;
 
 const Signup = () => {
   const [email, setEmail] = useState("");

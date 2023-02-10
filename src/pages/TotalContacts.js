@@ -14,7 +14,9 @@ import Edit from '../assests/images/Layer 42.png'
 import Delete from '../assests/images/Layer 17.png'
 import "./totalContact.css";
 import ContactContext from "../context/ContactContext";
-const APIUrl = "https://phonebookapi.onrender.com"
+
+const APIUrl = process.env.REACT_APP_APIURL;
+
 const TotalContact = () => {
   const { contact, getData, setContact } = useContext(ContactContext)
   const navigate = useNavigate();
