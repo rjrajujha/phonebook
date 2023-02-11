@@ -28,7 +28,6 @@ export const ContactContextProvider = ({ children }) => {
   }
 
   const deleteUser = async (selectContact) => {
-    console.log(selectContact)
     const headers = { "Authorization": localStorage.getItem("token") }
     await axios.delete(`${APIUrl}/del/${selectContact}`, { headers }) //user
 

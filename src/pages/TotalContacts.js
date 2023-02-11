@@ -18,7 +18,7 @@ import ContactContext from "../context/ContactContext";
 const APIUrl = process.env.REACT_APP_APIURL;
 
 const TotalContact = () => {
-  const { contact, getData, setContact } = useContext(ContactContext)
+  const { contact, getData, setContact, deleteUser } = useContext(ContactContext)
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,13 +36,10 @@ const TotalContact = () => {
   }
 
   useEffect(() => {
-
     getData();
-
     getAdmin()
     setDim(false)
-
-  }, [getData])
+  }, [])
 
 
   const handleContact = (e, itemId) => {
@@ -67,7 +64,7 @@ const TotalContact = () => {
   const handleSearch = async (email, e) => {
     // console.log(email)
     const headers = { "Authorization": localStorage.getItem("token") }
-    if (e.key === "Enter") {
+    if (e.key !== "") {
       const user = await axios.get(`${APIUrl}/search/${email}`, { headers })
       setContact(user?.data)
     }
@@ -81,7 +78,6 @@ const TotalContact = () => {
     const headers = { "Authorization": localStorage.getItem("token") }
     const admins = await axios.get(`${APIUrl}/getAdmin`, { headers })
     setAdmin(admins)
-    // console.log(admins.data)
   }
 
   return (
@@ -152,9 +148,7 @@ const TotalContact = () => {
               </thead>
               <tbody>
 
-                {/* {console.log(contact)} */}
                 {contact && contact.map((item, id) => {
-                  // console.log(tick)
                   return (
                     <tr key={id}>
                       <td><input type="checkbox" onClick={(e) => { handleContact(e, item?._id) }} /></td>
@@ -167,7 +161,7 @@ const TotalContact = () => {
                       <td>{contact && item?.phone}</td>
                       <td>{contact && item?.country}</td>
                       <td>
-                        <img src={Delete} style={{ "marginRight": "20px" }} alt="delete" />
+                        <img src={Delete} onClick={(e) => deleteUser(item._id)} style={{ "marginRight": "20px" }} alt="delete" />
                         <img src={Edit} alt="edit" />
                       </td>
 
